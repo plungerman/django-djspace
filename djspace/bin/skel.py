@@ -47,7 +47,7 @@ parser.add_argument(
 def main():
     """Main function description."""
     if test:
-        print("this is a test")
+        print("this is a test eh")
         logger.debug("debug = %s" % test)
     else:
         print("this is not a test")
