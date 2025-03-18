@@ -2503,10 +2503,11 @@ class ProfessionalProgramStudentForm(forms.ModelForm):
         fields = (
             'program',
             'mentor',
-            'award_acceptance',
             'past_funding',
             'past_funding_year',
             'anticipating_funding',
+            'nasa_award_letter',
+            'award_acceptance',
             'signed_certification',
         )
 
@@ -2540,9 +2541,11 @@ class ProfessionalProgramStudentUploadsForm(forms.ModelForm):
     class Meta:
         """Attributes about the form and options."""
 
-        model = HigherEducationInitiatives
+        #model = HigherEducationInitiatives
+        model = ProfessionalProgramStudent
         fields = (
             'award_acceptance',
+            'nasa_award_letter',
             'interim_report',
             'final_report',
             'other_file',

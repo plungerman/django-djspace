@@ -3277,6 +3277,15 @@ class ProfessionalProgramStudent(BaseModel):
         on_delete=models.PROTECT,
         related_name='professional_program_student',
     )
+    nasa_award_letter = models.FileField(
+        "NASA Award Notification Letter",
+        upload_to=partial(upload_to_path, 'Nasa_Award_Letter'),
+        validators=FILE_VALIDATORS,
+        max_length=255,
+        null=True,
+        blank=True,
+        help_text="PDF format",
+    )
     AerospaceOutreach = models.ForeignKey(
         AerospaceOutreach,
         on_delete=models.SET_NULL,
@@ -3420,6 +3429,10 @@ class ProfessionalProgramStudent(BaseModel):
     def required_files(self):
         """Used when building a tarball of required files."""
         return []
+
+    def nasa_award_letter_timestamp(self):
+        """Timestamp method for UI level display."""
+        return self.get_file_timestamp('nasa_award_letter')
 
 
 class WorkPlanTask(models.Model):

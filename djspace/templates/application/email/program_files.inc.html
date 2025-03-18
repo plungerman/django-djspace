@@ -2,6 +2,23 @@
   {% include "application/email/rocket-launch-team.files.inc.html" %}
 {% else %}
 <ul>
+{% if data.get_slug == "professional-program-student" %}
+  {% if data.nasa_award_letter %}
+  <li>
+    <a href="{{media_url}}{{data.award_acceptance}}" target="_blank">
+      NASA Award Letter
+    </a>
+    <ul>
+      <li>Created: {{data.nasa_award_letter_timestamp}}</li>
+      <li>
+        https://{{server_url}}{{media_url}}{{data.nasa_award_letter}}
+      </li>
+    </ul>
+  </li>
+  {% else %}
+    {% if data.status %}<li>NASA Award Letter: Missing</li>{% endif %}
+  {% endif %}
+{% endif %}
 {% if data.cv %}
 <li>
   <a href="{{media_url}}{{data.cv}}" target="_blank">CV</a>

@@ -68,6 +68,33 @@
                 title="Missing file"></i>
             {% endif %}
           </li>
+          {% if app.get_content_type.model == "professionalprogramstudent" %}
+          <li class="form-group ctrlHolder">
+            <h3>
+              <label for="id_nasa_award_letter">
+                NASA Award Letter [PDF]
+              </label>
+            </h3>
+            <div class="filewrap fleft">
+              <input type="file" class="upload-file"
+                data-content-type="{{app.get_content_type.id}}"
+                data-oid="{{app.id}}"
+                name="nasa_award_letter" id="id_nasa_award_letter">
+              <span class='filebutt'>Select File</span>
+              <span class='filevalu'></span>
+            </div>
+            {% if app.nasa_award_letter %}
+              <a class="fa-fw"
+                href="{{media_url}}{{app.nasa_award_letter}}"
+                target="_blank">
+                <i class="fa-solid fa-file-pdf fa-fw blue"
+                aria-hidden="true"></i></a>
+            {% else %}
+              <i class="fa-solid fa-xmark fa-fw red" aria-hidden="true"
+                title="Missing file"></i>
+            {% endif %}
+          </li>
+          {% endif %}
           {# RocketLaunchTeam creator and student leader can upload requisite files #}
           {% if app.get_content_type.model == "rocketlaunchteam" %}
             {% include "dashboard/rocket_launch_team_files.inc.html" %}
