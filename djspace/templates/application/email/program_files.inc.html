@@ -2,7 +2,7 @@
   {% include "application/email/rocket-launch-team.files.inc.html" %}
 {% else %}
 <ul>
-{% if data.get_slug == "professional-program-student" %}
+{% if data.get_slug == "professional-program-student" and data.program == "NasaInternship" %}
   {% if data.nasa_award_letter %}
   <li>
     <a href="{{media_url}}{{data.award_acceptance}}" target="_blank">

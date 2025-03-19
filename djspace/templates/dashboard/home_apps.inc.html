@@ -68,7 +68,8 @@
                 title="Missing file"></i>
             {% endif %}
           </li>
-          {% if app.get_content_type.model == "professionalprogramstudent" %}
+          {% if app.get_content_type.model == "professionalprogramstudent" and app.program == "NasaInternship" %}
+
           <li class="form-group ctrlHolder">
             <h3>
               <label for="id_nasa_award_letter">
