@@ -2460,6 +2460,11 @@ class ProfessionalProgramStudentForm(forms.ModelForm):
             from which to choose.
         """,
     )
+    award_acceptance = forms.FileField(
+        label="WSGC Award Acceptance",
+        help_text="PDF format",
+        required=False,
+    )
     AerospaceOutreach = forms.CharField(
         required=False, max_length=64, widget=forms.HiddenInput(),
     )

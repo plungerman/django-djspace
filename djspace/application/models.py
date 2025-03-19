@@ -3284,7 +3284,7 @@ class ProfessionalProgramStudent(BaseModel):
         max_length=255,
         null=True,
         blank=True,
-        help_text="PDF format",
+        help_text="NASA Internship program only. PDF format",
     )
     AerospaceOutreach = models.ForeignKey(
         AerospaceOutreach,
