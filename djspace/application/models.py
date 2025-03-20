@@ -203,6 +203,12 @@ ROCKET_COMPETITIONS_EXCLUDE = [
     'firstnationsrocketcompetition',
 ]
 TRA_NAR_MEMBER = (('Yes', 'Yes'), ('No', 'No'), ('Not certain', 'Not certain'))
+OTHER_PROGRAM_PURPOSE = (
+    ('', "----select----"),
+    ('LiftOff', 'LiftOff'),
+    ('SEEC', 'SEEC'),
+    ('Travel', 'Travel'),
+)
 
 
 class EducationInitiatives(BaseModel):
@@ -3433,6 +3439,86 @@ class ProfessionalProgramStudent(BaseModel):
     def nasa_award_letter_timestamp(self):
         """Timestamp method for UI level display."""
         return self.get_file_timestamp('nasa_award_letter')
+
+
+class OtherProgram(BaseModel):
+    """Other Program Proposal: Generic program for various funding targets."""
+
+    purpose = models.CharField(
+        "Purpose/Destination of funding",
+        max_length=128,
+        choices=OTHER_PROGRAM_PURPOSE,
+        help_text="",
+    )
+    proposal = models.FileField(
+        upload_to=partial(upload_to_path, 'Proposal'),
+        validators=FILE_VALIDATORS,
+        max_length=255,
+        help_text="PDF format",
+    )
+    invoice_q1 = models.FileField(
+        upload_to=partial(upload_to_path, 'Invoice_Q1'),
+        validators=FILE_VALIDATORS,
+        max_length=255,
+        null=True,
+        blank=True,
+        help_text="PDF format",
+    )
+    invoice_q2 = models.FileField(
+        upload_to=partial(upload_to_path, 'Invoice_Q2'),
+        validators=FILE_VALIDATORS,
+        max_length=255,
+        null=True,
+        blank=True,
+        help_text="PDF format",
+    )
+
+    class Meta:
+        """Attributes about the data model and admin options."""
+
+        verbose_name_plural = "Other Programs"
+        verbose_name = "Other Program"
+
+    def __str__(self):
+        """Default data for display."""
+        return "{0}, {1} [{2}]".format(
+            self.user.last_name, self.user.first_name, self.id,
+        )
+
+    def get_application_type(self):
+        """Application type title for display."""
+        return 'Other Program'
+
+    def get_slug(self):
+        """Slug for the application, used for many things."""
+        return 'other-program'
+
+    def get_code(self):
+        """Three letter code for WSGC administrative purposes."""
+        return 'OPP{0}_{1}'.format(YEAR_2, self.purpose)
+
+    def required_files(self):
+        """Used when building a tarball of required files."""
+        return ['proposal',]
+
+    def proposal_timestamp(self):
+        """Timestamp method for UI level display."""
+        return self.get_file_timestamp('proposal')
+
+    def invoice_q1_timestamp(self):
+        """Timestamp method for UI level display."""
+        return self.get_file_timestamp('invoice_q1')
+
+    def invoice_q2_timestamp(self):
+        """Timestamp method for UI level display."""
+        return self.get_file_timestamp('invoice_q2')
+
+    def get_absolute_url(self):
+        """Returns the absolute URL from root URL."""
+        return reverse(
+            'application_update',
+            kwargs={'application_type': self.get_slug(), 'aid': str(self.id)},
+        )
 
 
 class WorkPlanTask(models.Model):

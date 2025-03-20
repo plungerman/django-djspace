@@ -1849,6 +1849,44 @@ class ProfessionalProgramStudentAdmin(GenericAdmin):
     program_link.short_description = 'Program Name (view/edit)'
 
 
+class OtherProgramAdmin(GenericAdmin):
+    """Admin class for Other Program."""
+
+    model = OtherProgram
+    list_display = PROFILE_LIST_DISPLAY + [
+        'proposal_file',
+        'invoice_q1_file',
+        'invoice_q2_file',
+        'funded_code',
+        'complete',
+        'status',
+    ]
+    list_editable = ['funded_code', 'complete', 'status']
+    actions = [
+        export_longitudinal_tracking,
+        export_all_applications,
+        export_photo_files,
+    ]
+
+    def proposal_file(self, instance):
+        """Construct display file code for the admin dashboard."""
+        return admin_display_file(instance, 'proposal')
+    proposal_file.allow_tags = True
+    proposal_file.short_description = "Proposal"
+
+    def invoice_q1_file(self, instance):
+        """Construct display file code for the admin dashboard."""
+        return admin_display_file(instance, 'invoice_q1')
+    invoice_q1_file.allow_tags = True
+    invoice_q1_file.short_description = "Reimbursement 1"
+
+    def invoice_q2_file(self, instance):
+        """Construct display file code for the admin dashboard."""
+        return admin_display_file(instance, 'invoice_q2')
+    invoice_q2_file.allow_tags = True
+    invoice_q2_file.short_description = "Reimbursement 2"
+
+
 admin.site.register(
     HigherEducationInitiatives, HigherEducationInitiativesAdmin,
 )
@@ -1913,4 +1951,7 @@ admin.site.register(
 )
 admin.site.register(
     ProfessionalProgramStudent, ProfessionalProgramStudentAdmin,
+)
+admin.site.register(
+    OtherProgram, OtherProgramAdmin,
 )

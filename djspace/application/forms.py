@@ -2557,3 +2557,53 @@ class ProfessionalProgramStudentUploadsForm(forms.ModelForm):
             'other_file2',
             'other_file3',
         )
+
+
+class OtherProgramForm(forms.ModelForm):
+    """Other Program Proposal form."""
+
+    purpose = forms.CharField(
+        label="Purpose/Destination of funding",
+        widget=forms.Select(choices=OTHER_PROGRAM_PURPOSE),
+        required=False,
+    )
+    past_funding = forms.TypedChoiceField(
+        label="Have you received WSGC funding within the past five years?",
+        choices=BINARY_CHOICES,
+        widget=forms.RadioSelect(),
+    )
+    past_funding_year = forms.CharField(
+        label="If 'Yes', what year?",
+        widget=forms.Select(choices=PAST_FUNDING_YEAR_CHOICES),
+        required=False,
+    )
+
+    class Meta:
+        """Attributes about the form and options."""
+
+        model = OtherProgram
+        fields = (
+            'purpose',
+            'proposal',
+            'past_funding',
+            'past_funding_year',
+            'anticipating_funding',
+        )
+
+
+class OtherProgramUploadsForm(forms.ModelForm):
+    """Other Program Proposal uploads form."""
+
+    class Meta:
+        """Attributes about the form and options."""
+
+        model = OtherProgram
+        fields = (
+            'award_acceptance',
+            'final_report',
+            'invoice_q1',
+            'invoice_q2',
+            'other_file',
+            'other_file2',
+            'other_file3',
+        )
