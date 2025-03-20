@@ -6,7 +6,6 @@
     </a>
   </li>
   {% endif %}
-
   {% if user.profile.registration_type == "Undergraduate" or user.profile.registration_type == "Graduate" %}
   <li>
     <a href="{% url 'application_create' 'clark-graduate-fellowship' %}">
@@ -30,7 +29,6 @@
     </a>
   </li>
   {% endif %}
-
   {% if user.profile.registration_type == "Professional" or user.profile.registration_type == "Faculty" %}
   <li>
     <a href="{% url 'application_create' 'industry-internship' %}">
@@ -38,8 +36,8 @@
     </a>
   </li>
   {% endif %}
-
-  {% if user.profile.registration_type != "Faculty" and user.profile.registration_type != "HighSchool" %}
+  {# if user.profile.registration_type != "Faculty" and user.profile.registration_type != "HighSchool" #}
+  <!--
   <li>
     <a href="{% url 'application_create' 'undergraduate-aerospace-design-research-scholarship' %}">
       Undergraduate Aerospace Design Research Scholarship
@@ -50,8 +48,8 @@
       Unmanned Aerial Vehicles Research Scholarship
     </a>
   </li>
-  {% endif %}
-
+  -->
+  {# endif #}
   {% if user.profile.registration_type != "Undergraduate" and user.profile.registration_type != "Graduate" and user.profile.registration_type != "HighSchool"%}
   <li>
     <a href="{% url 'application_create' 'early-stage-investigator' %}">
@@ -80,14 +78,12 @@
     </a>
   </li>
   {% endif %}
-
   <li>
     <a href="{% url 'application_create' 'special-initiatives' %}">
       Special Initiatives
     </a>
   </li>
   {% endif %}
-
   {% if user.profile.registration_type == "Undergraduate" or user.profile.registration_type == "Graduate" %}
   <li>
     <a href="{% url 'application_create' 'professional-program-student' %}">
@@ -121,7 +117,6 @@
     </a>
   </li>
   {% endif %}
-
   {% if user.profile.registration_type == "HighSchool"%}
   <li>
     <a href="{% url 'application_create' 'professional-program-student' %}">
@@ -134,5 +129,4 @@
     </a>
   </li>
   {% endif %}
-
 </ul>
