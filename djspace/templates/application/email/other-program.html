@@ -1,9 +1,6 @@
 {% extends "application/email/base.html" %}
 {% block title %}Other Program{% endblock %}
 {% block data %}
-{% with data.user as user %}
-  {% include "application/email/user_files.inc.html" %}
-{% endwith %}
 <h4>Purpose/Destination of funding</h4>
 <p>{{data.purpose}}</p>
 {% endblock %}
