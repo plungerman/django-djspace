@@ -692,6 +692,7 @@ class UserProfile(models.Model):
         'application.UndergraduateResearch',
         'application.UndergraduateScholarship',
         'application.NasaCompetition',
+        'application.OtherProgram',
         'application.IndustryInternship',
         'application.ProfessionalProgramStudent',
         'application.UndergraduateAerospaceDesignResearchScholarship',
