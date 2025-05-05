@@ -185,14 +185,15 @@ PROFESSIONAL_PROGRAMS = [
 # update excludes in application/views.py for non-programs
 STUDENT_PROFESSIONAL_PROGRAMS = (
     ('AerospaceOutreach', 'Aerospace Outreach'),
-    ('CaNOP', 'CaNOP'),
+    #('CaNOP', 'CaNOP'),
     ('EarlyStageInvestigator', 'Early-Stage Investigator'),
     ('HigherEducationInitiatives', 'Higher Education Initiatives'),
     ('IndustryInternship', 'Industry Internship'),
-    ('MicroPropellantGauging', 'Micro-Propellant Gauging'),
+    #('MicroPropellantGauging', 'Micro-Propellant Gauging'),
     ('NasaCompetition', 'NASA Competition'),
     ('NasaInternship', 'NASA Internship'),
     ('ResearchInfrastructure', 'Research Infrastructure'),
+    ('SecondStageSpaceSciences', 'Second Stage Space Sciences'),
     ('SpecialInitiatives', 'Special Initiatives'),
     ('Student Ambassador', 'Student Ambassador'),
 )

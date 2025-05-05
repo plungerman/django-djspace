@@ -239,6 +239,7 @@ def application_form(request, application_type, aid=None):
                     'CaNOP',
                     'MicroPropellantGauging',
                     'NasaInternship',
+                    'SecondStageSpaceSciences',
                     'Student Ambassador',
                 ]
                 if program not in excludes:
