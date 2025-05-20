@@ -135,7 +135,9 @@ class GenericAdmin(admin.ModelAdmin, CSSAdminMixin):
             ),
         }
         js = (
-            'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js',
+            'https://code.jquery.com/jquery-3.7.1.js',
+            #'https://code.jquery.com/jquery-3.6.4.min.js',
+            #'https://code.jquery.com/jquery-3.5.1.js',
             '//www.carthage.edu/static/vendor/jquery/plugins/jqDoubleScroll/jquery.doubleScroll.js',
             '/static/djspace/js/admin.js',
         )
