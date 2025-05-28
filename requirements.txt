@@ -1,5 +1,5 @@
 cryptography
-django==4.2.15
+django==4.2.21
 django-allauth
 django-gmailapi-json-backend
 #django-gm2m  #  user forked repo: /d2/django_projects/django-gm2m
