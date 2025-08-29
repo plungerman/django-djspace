@@ -78,11 +78,13 @@
     </a>
   </li>
   {% endif %}
+  <!--
   <li>
     <a href="{% url 'application_create' 'special-initiatives' %}">
       Special Initiatives
     </a>
   </li>
+  -->
   {% endif %}
   {% if user.profile.registration_type == "Undergraduate" or user.profile.registration_type == "Graduate" %}
   <li>
@@ -92,14 +94,16 @@
   </li>
   <li>
     <a href="{% url 'application_create' 'women-in-aviation-scholarship' %}">
-      Women in Aviation Scholarship
+      Aviation Scholarship
     </a>
   </li>
+  <!--
   <li>
     <a href="{% url 'application_create' 'stem-bridge-scholarship' %}">
       STEM Bridge Scholarship
     </a>
   </li>
+  -->
   <li>
     <a href="{% url 'application_create' 'undergraduate-scholarship' %}">
       Undergraduate Scholarship
@@ -107,7 +111,7 @@
   </li>
   <li>
     <a href="{% url 'application_create' 'undergraduate-research' %}">
-      Undergraduate Research Fellowship
+      Undergraduate Research Scholarship
     </a>
   </li>
   <li>

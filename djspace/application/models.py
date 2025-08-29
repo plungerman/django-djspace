@@ -65,16 +65,8 @@ PROJECT_CATEGORIES = (
     ),
 )
 ACADEMIC_INSTITUTIONS = (
-    (
-        'Two-year Academic Institution Opportunity (Fall)',
-        'Two-year Academic Institution Opportunity (Fall)',
-    ),
-    (
-        'All Academic Institution Opportunity (Spring)',
-        'All Academic Institution Opportunity (Spring)',
-    ),
-    ('STEM Bridge', 'STEM Bridge'),
-    ('Women in Aviation', 'Women in Aviation'),
+    ('Undergraduate Scholarship', 'Undergraduate Scholarship'),
+    ('Aviation Scholarship', 'Aviation Scholarship'),
 )
 INDUSTRY_AWARD_TYPES = (
     (
@@ -100,12 +92,20 @@ INDUSTRY_AWARD_TYPES = (
 )
 UNDERGRADUATE_RESEARCH_AWARD_TYPES = (
     (
-        'Summer Research: Up to $5000',
-        'Summer Research: Up to $5000',
+        'Academic-Year Research: Up to $5000',
+        'Academic-Year Research: Up to $5000',
     ),
     (
-        'Academic-Year Research: Up to $5000',
-        'Academic-Year Research: Up to $5000',
+        'Fall Research: Up to $5000',
+        'Fall Research: Up to $5000',
+    ),
+    (
+        'Spring Research: Up to $5000',
+        'Spring Research: Up to $5000',
+    ),
+    (
+        'Summer Research: Up to $5000',
+        'Summer Research: Up to $5000',
     ),
 )
 EDUCATION_INITIATIVES_AWARD_TYPES = (

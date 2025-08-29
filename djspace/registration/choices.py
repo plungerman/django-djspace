@@ -138,5 +138,5 @@ PROGRAM_CHOICES = (
         'UnmannedAerialVehiclesResearchScholarship',
         'Unmanned Aerial Vehicles Research Scholarship',
     ),
-    ('WomenInAviationScholarship', 'Women in Aviation Scholarship'),
+    ('WomenInAviationScholarship', 'Aviation Scholarship'),
 )
