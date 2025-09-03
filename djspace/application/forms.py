@@ -18,7 +18,7 @@ from djtools.fields.localflavor import USPhoneNumberField
 
 
 class HigherEducationInitiativesForm(forms.ModelForm):
-    """Higher Education Initiatives Form."""
+    """Higher Education Incentives Form."""
 
     budget = forms.FileField(
         help_text="""
@@ -35,13 +35,6 @@ class HigherEducationInitiativesForm(forms.ModelForm):
         label="If 'Yes', what year?",
         widget=forms.Select(choices=PAST_FUNDING_YEAR_CHOICES),
         required=False,
-    )
-    other_fellowship = forms.TypedChoiceField(
-        label="""
-            Do you currently hold another Federal fellowship or traineeship?
-        """,
-        choices=BINARY_CHOICES,
-        widget=forms.RadioSelect(),
     )
     finance_officer_phone = USPhoneNumberField(
         label="Phone number",
@@ -96,8 +89,6 @@ class HigherEducationInitiativesForm(forms.ModelForm):
             'past_funding',
             'past_funding_year',
             'anticipating_funding',
-            'other_fellowship',
-            'other_fellowship_explain',
             'begin_date',
             'end_date',
             'location',
@@ -171,7 +162,7 @@ class HigherEducationInitiativesForm(forms.ModelForm):
 
 
 class HigherEducationInitiativesUploadsForm(forms.ModelForm):
-    """Higher Education Initiatives uploads form."""
+    """Higher Education Incentives uploads form."""
 
     class Meta:
         """Attributes about the form and options."""
@@ -210,18 +201,6 @@ class ResearchInfrastructureForm(forms.ModelForm):
     )
     past_funding = forms.TypedChoiceField(
         label="Have you received WSGC funding within the past five years?",
-        choices=BINARY_CHOICES,
-        widget=forms.RadioSelect(),
-    )
-    past_funding_year = forms.CharField(
-        label="If 'Yes', what year?",
-        widget=forms.Select(choices=PAST_FUNDING_YEAR_CHOICES),
-        required=False,
-    )
-    other_fellowship = forms.TypedChoiceField(
-        label="""
-            Do you currently hold another Federal fellowship or traineeship?
-        """,
         choices=BINARY_CHOICES,
         widget=forms.RadioSelect(),
     )
@@ -278,8 +257,6 @@ class ResearchInfrastructureForm(forms.ModelForm):
             'past_funding',
             'past_funding_year',
             'anticipating_funding',
-            'other_fellowship',
-            'other_fellowship_explain',
             'begin_date',
             'end_date',
             'location',
@@ -402,13 +379,6 @@ class EarlyStageInvestigatorForm(forms.ModelForm):
         widget=forms.Select(choices=PAST_FUNDING_YEAR_CHOICES),
         required=False,
     )
-    other_fellowship = forms.TypedChoiceField(
-        label="""
-            Do you currently hold another Federal fellowship or traineeship?
-        """,
-        choices=BINARY_CHOICES,
-        widget=forms.RadioSelect(),
-    )
     finance_officer_phone = USPhoneNumberField(
         label="Phone number",
         max_length=12,
@@ -462,8 +432,6 @@ class EarlyStageInvestigatorForm(forms.ModelForm):
             'past_funding',
             'past_funding_year',
             'anticipating_funding',
-            'other_fellowship',
-            'other_fellowship_explain',
             'begin_date',
             'end_date',
             'location',
@@ -1124,7 +1092,7 @@ class StemBridgeScholarshipUploadsForm(forms.ModelForm):
 
 
 class WomenInAviationScholarshipForm(forms.ModelForm):
-    """Women in Aviation Scholarship form."""
+    """Aviation Scholarship form."""
 
     statement = forms.FileField(
         help_text=mark_safe("""
@@ -1132,7 +1100,7 @@ class WomenInAviationScholarshipForm(forms.ModelForm):
             <ol class="help_text">
             <li>interest in aviation</li>
             <li>experience in aviation (coursework, pilot training, etc.)</li>
-            <li>benefit of attending the 2020 Women in Aviation conference</li>
+            <li>benefit of attending the Aviation conference</li>
             <li>future plan to participate in aviation as a career, hobby, etc./<li>
             </ol> [PDF format]
         """),
@@ -1203,7 +1171,7 @@ class WomenInAviationScholarshipForm(forms.ModelForm):
 
 
 class WomenInAviationScholarshipUploadsForm(forms.ModelForm):
-    """Women in Aviation Scholarship uploads form."""
+    """Aviation Scholarship uploads form."""
 
     class Meta:
         """Attributes about the form and options."""

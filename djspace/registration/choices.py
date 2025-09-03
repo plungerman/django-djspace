@@ -119,7 +119,7 @@ PROGRAM_CHOICES = (
     ('FirstNationsRocketCompetition', 'First Nations Rocket Competition'),
     ('GraduateFellowship', 'WSGC Graduate and Professional Research Fellowship'),
     ('HighAltitudeBalloonLaunch', 'High Altitude Balloon Launch'),
-    ('HigherEducationInitiatives', 'Higher Education Initiatives'),
+    ('HigherEducationInitiatives', 'Higher Education Incentives'),
     ('IndustryInternship', 'Industry Internship'),
     ('MidwestHighPoweredRocketCompetition', 'Midwest High Powered Rocket Competition'),
     ('NasaCompetition', 'NASA Competition'),
@@ -132,7 +132,7 @@ PROGRAM_CHOICES = (
         'UndergraduateAerospaceDesignResearchScholarship',
         'Undergraduate Aerospace Design Research Scholarship'
     ),
-    ('UndergraduateResearch', 'Undergraduate Research Fellowship'),
+    ('UndergraduateResearch', 'Undergraduate Research Scholarship'),
     ('UndergraduateScholarship', 'Undergraduate Scholarship'),
     (
         'UnmannedAerialVehiclesResearchScholarship',

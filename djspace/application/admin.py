@@ -679,7 +679,7 @@ class UndergraduateScholarshipAdmin(UndergraduateAdmin):
 
 
 class WomenInAviationScholarshipAdmin(UndergraduateScholarshipAdmin):
-    """Admin class for Women In Aviation Scholarship."""
+    """Admin class for Aviation Scholarship."""
 
     model = WomenInAviationScholarship
 
@@ -1342,7 +1342,7 @@ class FirstNationsRocketCompetitionAdmin(GenericAdmin):
 
 
 class HigherEducationInitiativesAdmin(GenericAdmin):
-    """Admin class for Higher Education Initiatives."""
+    """Admin class for Higher Education Incentives."""
 
     model = HigherEducationInitiatives
 

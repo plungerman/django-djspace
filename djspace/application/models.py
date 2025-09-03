@@ -33,12 +33,7 @@ if settings.DEBUG:
     PHOTO_VALIDATORS = []
 DIRECTORATE_CHOICES = (
     ('Aeronautics Research', 'Aeronautics Research'),
-    (
-        'Explorations Systems Development Mission Directorate',
-        'Explorations Systems Development Mission Directorate',
-    ),
     ('Science', 'Science'),
-    ('Space Operations Mission Directorate', 'Space Operations Mission Directorate'),
     ('Space Technology', 'Space Technology'),
     ('Other', 'Other'),
 )
@@ -113,14 +108,6 @@ EDUCATION_INITIATIVES_AWARD_TYPES = (
         'Early-Stage Investigator: Up to $10,000',
         'Early-Stage Investigator: Up to $10,000',
     ),
-    (
-        'Multi-Institutional: Up to $20,000',
-        'Multi-Institutional: Up to $20,000',
-    ),
-    (
-        'Multi-Institutional: Up to $15,000',
-        'Multi-Institutional: Up to $15,000',
-    ),
     ('Major Award: $5000-$10000', 'Major Award: $5000-$10000'),
     ('Minor Award:  Up to $5000', 'Minor Award:  Up to $5000'),
 )
@@ -187,7 +174,7 @@ STUDENT_PROFESSIONAL_PROGRAMS = (
     ('AerospaceOutreach', 'Aerospace Outreach'),
     #('CaNOP', 'CaNOP'),
     ('EarlyStageInvestigator', 'Early-Stage Investigator'),
-    ('HigherEducationInitiatives', 'Higher Education Initiatives'),
+    ('HigherEducationInitiatives', 'Higher Education Incentives'),
     ('IndustryInternship', 'Industry Internship'),
     #('MicroPropellantGauging', 'Micro-Propellant Gauging'),
     ('NasaCompetition', 'NASA Competition'),
@@ -236,20 +223,6 @@ class EducationInitiatives(BaseModel):
     )
     source_match = models.CharField(
         "Source(s) of match", max_length=255,
-    )
-    other_fellowship = models.CharField(
-        "Do you currently hold another federal fellowship or traineeship?",
-        max_length=4,
-        choices=BINARY_CHOICES,
-    )
-    other_fellowship_explain = models.CharField(
-        """
-            If yes, please provide the funding source and the
-            funding expiration date.
-        """,
-        max_length=255,
-        null=True,
-        blank=True,
     )
     begin_date = models.DateField()
     end_date = models.DateField(
@@ -480,7 +453,7 @@ class EducationInitiatives(BaseModel):
 
 
 class HigherEducationInitiatives(EducationInitiatives):
-    """Higher Education Initiatives."""
+    """Higher Education Incentives."""
 
     # grants officer user
     grants_officer = models.ForeignKey(
@@ -514,7 +487,7 @@ class HigherEducationInitiatives(EducationInitiatives):
 
     def get_application_type(self):
         """Application type title for display."""
-        return 'Higher Education Initiatives'
+        return 'Higher Education Incentives'
 
     def get_slug(self):
         """Slug for the application, used for many things."""
@@ -537,7 +510,7 @@ class HigherEducationInitiatives(EducationInitiatives):
     class Meta:
         """Attributes about the data model and admin options."""
 
-        verbose_name_plural = "Higher Education Initiatives"
+        verbose_name_plural = "Higher Education Incentives"
 
 
 class ResearchInfrastructure(EducationInitiatives):
@@ -2182,7 +2155,7 @@ class GraduateFellowship(Fellowship):
 
 
 class UndergraduateResearch(BaseModel):
-    """Undergraduate Research Fellowship."""
+    """Undergraduate Research Scholarship."""
 
     # core
     project_title = models.CharField("Title of project", max_length=255)
@@ -2305,7 +2278,7 @@ class UndergraduateResearch(BaseModel):
 
     def get_application_type(self):
         """Application type title for display."""
-        return 'Undergraduate Research Fellowship'
+        return 'Undergraduate Research Scholarship'
 
     def get_slug(self):
         """Slug for the application, used for many things."""
@@ -2360,7 +2333,8 @@ class UndergraduateResearch(BaseModel):
     class Meta:
         """Attributes about the data model and admin options."""
 
-        verbose_name_plural = "Undergraduate Research"
+        verbose_name = "Undergraduate Research Scholarship"
+        verbose_name_plural = "Undergraduate Research Scholarships"
 
 
 class Scholarship(BaseModel):
@@ -2524,15 +2498,15 @@ class Scholarship(BaseModel):
 
 
 class WomenInAviationScholarship(Scholarship):
-    """Women in aviation scholarship."""
+    """Aviation scholarship."""
 
     def __str__(self):
         """Default data for display."""
-        return "Women in Aviation Scholarship"
+        return "Aviation Scholarship"
 
     def get_application_type(self):
         """Application type title for display."""
-        return 'Women in Aviation Scholarship'
+        return 'Aviation Scholarship'
 
     def get_slug(self):
         """Slug for the application, used for many things."""
@@ -2552,8 +2526,8 @@ class WomenInAviationScholarship(Scholarship):
     class Meta:
         """Attributes about the data model and admin options."""
 
-        verbose_name = "Women in Aviation Scholarship"
-        verbose_name_plural = "Women in Aviation Scholarships"
+        verbose_name = "Aviation Scholarship"
+        verbose_name_plural = "Aviation Scholarships"
 
 
 class UndergraduateScholarship(Scholarship):
