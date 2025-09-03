@@ -56,6 +56,11 @@
   <h4>Grants Officer 2</h4>
   <p>{{data.grants_officer2.last_name}}, {{data.grants_officer2.first_name}}</p>
 {% endif %}
+<h4>NASA Mission Directorate</h4>
+<p>{{data.nasa_mission_directorate}}</p>
+{% if data.nasa_mission_directorate_other %}<h4>NASA Mission Directorate Other
+</h4>
+<p>{{data.nasa_mission_directorate_other}}</p>{% endif %}
 <h4>Preliminary Team Members</h4>
 <pre>
 {{data.member_1}}

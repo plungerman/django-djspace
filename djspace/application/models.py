@@ -480,6 +480,29 @@ class HigherEducationInitiatives(EducationInitiatives):
             Select the opportunity to which the proposal is being submitted.
         """,
     )
+    nasa_mission_directorate = models.CharField(
+        "NASA Mission Directorate",
+        max_length=128,
+        choices=DIRECTORATE_CHOICES,
+        help_text=mark_safe(
+            """
+            See NASA's
+            <a href="https://www.nasa.gov/directorates/"
+              target="_blank"> Mission Directorates</a> page for more information.
+            """,
+        ),
+    )
+    nasa_mission_directorate_other = models.CharField(
+        "Other",
+        max_length=128,
+        null=True,
+        blank=True,
+        help_text="""
+            If you have choosen "Other" in the field above,
+            please identify the NASA Mission Directorate in which you are
+            requesting funds to participate.
+        """,
+    )
 
     def __str__(self):
         """Default data for display."""

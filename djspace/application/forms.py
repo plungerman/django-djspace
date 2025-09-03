@@ -95,6 +95,8 @@ class HigherEducationInitiativesForm(forms.ModelForm):
             'synopsis',
             'proposal',
             'budget',
+            'nasa_mission_directorate',
+            'nasa_mission_directorate_other',
             'finance_officer_name',
             'finance_officer_title',
             'finance_officer_address',
