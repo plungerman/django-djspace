@@ -258,10 +258,14 @@ class EducationInitiatives(BaseModel):
         null=True, blank=True,
     )
     source_match = models.CharField(
-        "Source(s) of match", max_length=255, null=True, blank=True,
+        "Source(s) of match", max_length=255,
     )
     begin_date = models.DateField()
-    end_date = models.DateField()
+    end_date = models.DateField(
+        help_text="""
+            Note the spend down date requirement in the Announcement of Opportunity.
+        """,
+    )
     location = models.TextField(
         "Location of project",
         max_length=255,
@@ -2686,14 +2690,11 @@ class NasaCompetition(BaseModel):
         "Proposed match (optional)", null=True, blank=True,
     )
     authorized_match = models.IntegerField(null=True, blank=True)
-    source_match = models.CharField("Source(s) of match", max_length=255)
+    source_match = models.CharField("Source(s) of match", max_length=255, null=True, blank=True)
     begin_date = models.DateField()
     end_date = models.DateField(
         null=True,
         blank=True,
-        help_text="""
-            Note the spend down date requirement in the Announcement of Opportunity.
-        """,
     )
     location = models.TextField(
         "Location of project",
