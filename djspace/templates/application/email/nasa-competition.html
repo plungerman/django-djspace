@@ -1,17 +1,11 @@
 {% extends "application/email/base.html" %}
-{% block title %}NASA Competition{% endblock %}
+{% block title %}National Competitions and Programs{% endblock %}
 {% block data %}
-<h4>Type of NASA competition</h4>
+<h4>Funds requested to participate in the following National Competition or Program</h4>
 <p>{{data.competition_type}}</p>
 {% if data.competition_type_other %}
 <h4>Other competition</h4>
 <p>{{data.competition_type_other}}</p>
-{% endif %}
-<h4>NASA Center</h4>
-<p>{{data.facility_name}}</p>
-{% if data.facility_name_other %}
-<h4>Other facility</h4>
-<p>{{data.facility_name_other}}</p>
 {% endif %}
 <h4>Has your team applied and been accepted into the program?</h4>
 <p>{{data.program_acceptance}}</p>

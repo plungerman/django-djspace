@@ -1552,7 +1552,7 @@ class AerospaceOutreachAdmin(HigherEducationInitiativesAdmin):
 
 
 class NasaCompetitionAdmin(GenericAdmin):
-    """Admin class for NASA Competition."""
+    """Admin class for National Competitions and Programs."""
 
     model = NasaCompetition
     list_display = PROFILE_LIST_DISPLAY + [
@@ -1573,8 +1573,6 @@ class NasaCompetitionAdmin(GenericAdmin):
         'budget_file',
         'competition_type',
         'competition_type_other',
-        'facility_name',
-        'facility_name_other',
         'program_acceptance',
         'begin_date',
         'end_date',

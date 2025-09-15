@@ -30,6 +30,6 @@ SIP17_<K12/IE>
 Special Initiatives Program
 
 MNR/MJR minor/major award type
-FA/SP fall/spring [date submitted to determine season] Undergraduate scholarship/NASA Competitions
+FA/SP fall/spring [date submitted to determine season] Undergraduate scholarship / National Competitions and Programs
 
 K12/IE (AerospaceOutreach, SpecialInitiatives)

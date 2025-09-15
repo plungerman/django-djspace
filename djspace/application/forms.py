@@ -2114,7 +2114,7 @@ class CollegiateRocketCompetitionUploadsForm(forms.ModelForm):
 
 
 class NasaCompetitionForm(forms.ModelForm):
-    """NASA Competition form."""
+    """National Competitions and Programs form."""
 
     past_funding = forms.TypedChoiceField(
         label="Have you received WSGC funding within the past five years?",
@@ -2239,13 +2239,9 @@ class NasaCompetitionForm(forms.ModelForm):
             if cd.get("competition_type_other") == "":
                 self.add_error('competition_type_other', "Required field")
 
-        if cd.get("facility_name") == "Other":
-            if cd.get("facility_name_other") == "":
-                self.add_error('facility_name_other', "Required field")
-
 
 class NasaCompetitionUploadsForm(forms.ModelForm):
-    """NASA Competition uploads form."""
+    """National Competitions and Programs uploads form."""
 
     class Meta:
         """Attributes about the form and options."""

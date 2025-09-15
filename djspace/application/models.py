@@ -118,11 +118,47 @@ DISCIPLINES = (
     ('Other', 'Other'),
 )
 NASA_COMPETITION_TYPES = (
-    ('Big Idea Challenge', 'Big Idea Challenge'),
-    ('HASP', 'HASP'),
-    ('Micro-G/NExT', 'Micro-G/NExT'),
-    ('Robotic Mining', 'Robotic Mining'),
-    ('RockSat', 'RockSat'),
+    (
+        'App Development Challenge (ADC)',
+        'App Development Challenge (ADC)',
+    ),
+    ('Big Idea', 'Big Idea'),
+    (
+        'Great Lunar Expedition for Everyone (GLEE)',
+        'Great Lunar Expedition for Everyone (GLEE)',
+    ),
+    (
+        'Great Midwest Rocket Launch Competition (MRL)',
+        'Great Midwest Rocket Launch Competition (MRL)',
+    ),
+    (
+        'High Altitude Student Platform (HASP)',
+        'High Altitude Student Platform (HASP)'
+    ),
+    (
+        'Human Exploration Rover Challenge (HERC)',
+        'Human Exploration Rover Challenge (HERC)',
+    ),
+    (
+        'International Rocket Engineering Competition (IREC)',
+        'International Rocket Engineering Competition (IREC)'
+    ),
+    ('Lunabotics', 'Lunabotics'),
+    (
+        'Micro-g Neutral Buoyancy Experiment Design Teams (Micro-G NExT)',
+        'Micro-g Neutral Buoyancy Experiment Design Teams (Micro-G NExT)',
+    ),
+    (
+        'Revolutionary Aerospace Systems Concepts-Academic Linkage (RASC-AL)',
+        'Revolutionary Aerospace Systems Concepts-Academic Linkage (RASC-AL)',
+    ),
+    ('RockStar', 'RockStar'),
+    ('Space Apps', 'Space Apps'),
+    (
+        'Spacesuit User Interface Technologies for Students (SUITS)',
+        'Spacesuit User Interface Technologies for Students (SUITS)',
+    ),
+    ('Student Launch', 'Student Launch'),
     ('XHab', 'XHab'),
     ('Other', 'Other'),
 )
@@ -177,7 +213,7 @@ STUDENT_PROFESSIONAL_PROGRAMS = (
     ('HigherEducationInitiatives', 'Higher Education Incentives'),
     ('IndustryInternship', 'Industry Internship'),
     #('MicroPropellantGauging', 'Micro-Propellant Gauging'),
-    ('NasaCompetition', 'NASA Competition'),
+    ('NasaCompetition', 'National Competitions and Programs'),
     ('NasaInternship', 'NASA Internship'),
     ('ResearchInfrastructure', 'Research Infrastructure'),
     ('SecondStageSpaceSciences', 'Second Stage Space Sciences'),
@@ -222,14 +258,10 @@ class EducationInitiatives(BaseModel):
         null=True, blank=True,
     )
     source_match = models.CharField(
-        "Source(s) of match", max_length=255,
+        "Source(s) of match", max_length=255, null=True, blank=True,
     )
     begin_date = models.DateField()
-    end_date = models.DateField(
-        help_text="""
-            Note the spend down date requirement in the Announcement of Opportunity.
-        """,
-    )
+    end_date = models.DateField()
     location = models.TextField(
         "Location of project",
         max_length=255,
@@ -2616,12 +2648,11 @@ class StemBridgeScholarship(Scholarship):
 
 
 class NasaCompetition(BaseModel):
-    """NASA Competition education inititative."""
+    """National Competitions and Programs: education inititative."""
 
     competition_type = models.CharField(
         """
-            Type of NASA competition in which you are
-            requesting funds to participate
+            Funds requested to participate in the following National Competition or Program
         """,
         max_length=128,
         choices=NASA_COMPETITION_TYPES,
@@ -2633,21 +2664,8 @@ class NasaCompetition(BaseModel):
         blank=True,
         help_text="""
             If you have choosen "Other" in the field above,
-            please identify the NASA Competition in which you are
+            please identify the National Competitions and Programs in which you are
             requesting funds to participate
-        """,
-    )
-    facility_name = models.CharField(
-        "NASA center", max_length=128, choices=NASA_CENTER_CHOICES,
-    )
-    facility_name_other = models.CharField(
-        "Other",
-        max_length=128,
-        null=True,
-        blank=True,
-        help_text="""
-            If you have choosen "Other" in the field above,
-            please identify the competition location
         """,
     )
     program_acceptance = models.CharField(
@@ -2664,7 +2682,9 @@ class NasaCompetition(BaseModel):
         blank=True,
         help_text="In Dollars",
     )
-    proposed_match = models.IntegerField("Proposed match (25% mimimum)(in $)")
+    proposed_match = models.IntegerField(
+        "Proposed match (optional)", null=True, blank=True,
+    )
     authorized_match = models.IntegerField(null=True, blank=True)
     source_match = models.CharField("Source(s) of match", max_length=255)
     begin_date = models.DateField()
@@ -2872,8 +2892,8 @@ class NasaCompetition(BaseModel):
     class Meta:
         """Attributes about the data model and admin options."""
 
-        verbose_name_plural = "NASA Competitions"
-        verbose_name = "NASA Competition"
+        verbose_name_plural = "National Competitions and Programs"
+        verbose_name = "National Competitions and Programs"
 
     def __str__(self):
         """Default data for display."""
@@ -2883,7 +2903,7 @@ class NasaCompetition(BaseModel):
 
     def get_application_type(self):
         """Application type title for display."""
-        return 'NASA Competition'
+        return 'National Competitions and Programs'
 
     def get_slug(self):
         """Slug for the application, used for many things."""
