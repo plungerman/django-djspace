@@ -50,6 +50,8 @@ def application_form(request, application_type, aid=None):
         )
     except Exception:
         raise Http404
+    # name to display at the template level
+    display_name = mod._meta.verbose_name
     # supes can update someone else's application
     superuser = request.user.is_superuser
     # fetch object if update
@@ -108,7 +110,7 @@ def application_form(request, application_type, aid=None):
             return render(
                 request,
                 'application/form.html',
-                {'form': None, 'app_name': app_name},
+                {'form': None, 'app_name': app_name, 'display_name': display_name},
             )
 
     # rocket launch team co-advisor
@@ -449,6 +451,7 @@ def application_form(request, application_type, aid=None):
         {
             'form': form,
             'app_name': app_name,
+            'display_name': display_name,
             'obj': app,
         },
     )
