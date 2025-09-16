@@ -1,7 +1,7 @@
 {% extends "home.html" %}
 {% load livewhale_api %}
 {% block title %}
-  WSGC {{app_name}} Application &mdash; Carthage College
+  WSGC {{display_name}} Application &mdash; Carthage College
 {% endblock %}
 {% block extra_javascript %}
 {% if app_name == "Industry Internship" %}
@@ -92,7 +92,7 @@ $(function() {
     $('label[for="id_other_funding_0"]').closest('ul').addClass('linline');
     $('label[for="id_program_acceptance_0"]').closest('ul').addClass('linline');
     {% if app_name == "Professional Program Student" %}
-    /* Professional Program Student Mentor */
+    /* Student Participant in Internship Mentor */
     function getProgramSubmissions(mentor, program, aid) {
         var excludes = [
             'CaNOP',
@@ -159,7 +159,7 @@ $(function() {
         }
     });
     {% endif %}
-    /* End Professional Program Student Mentor */
+    /* End Student Participant in Internship Mentor */
     {% if app_name == "Rocket Launch Team" %}
     /* Rocket Launch Team Leader */
     {% if form.leader.value %}

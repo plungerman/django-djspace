@@ -2406,7 +2406,7 @@ class IndustryInternshipUploadsForm(forms.ModelForm):
 
 
 class ProfessionalProgramStudentForm(forms.ModelForm):
-    """Professional Programs for Student form."""
+    """Student Participant in Internship form."""
 
     past_funding = forms.TypedChoiceField(
         label="Have you received WSGC funding within the past five years?",
@@ -2507,7 +2507,7 @@ class ProfessionalProgramStudentForm(forms.ModelForm):
 
 
 class ProfessionalProgramStudentUploadsForm(forms.ModelForm):
-    """Professional Program Student uploads form."""
+    """Student Participant in Internship uploads form."""
 
     class Meta:
         """Attributes about the form and options."""

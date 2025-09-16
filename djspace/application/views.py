@@ -50,7 +50,6 @@ def application_form(request, application_type, aid=None):
         )
     except Exception:
         raise Http404
-
     # supes can update someone else's application
     superuser = request.user.is_superuser
     # fetch object if update
@@ -182,7 +181,7 @@ def application_form(request, application_type, aid=None):
     if request.method == 'POST':
         post = request.POST
         try:
-            # rocket launch team and professional program student
+            # rocket launch team and Student Participant in Internship
             # forms need request context
             program = (
                 application_type == 'rocket-launch-team' or

@@ -3286,7 +3286,7 @@ class IndustryInternship(BaseModel):
 
 
 class ProfessionalProgramStudent(BaseModel):
-    """Professional Program Student."""
+    """Student Participant in Internship."""
 
     program = models.CharField(
         "Program Name",
@@ -3378,11 +3378,11 @@ class ProfessionalProgramStudent(BaseModel):
     class Meta:
         """Attributes about the data model and admin options."""
 
-        verbose_name_plural = "Professional Program Student Participation"
+        verbose_name_plural = "Student Participant in Internship"
 
     def __str__(self):
         """Default data for display."""
-        return "Professional Program Student"
+        return "Student Participant in Internship"
 
     def get_absolute_url(self):
         """Returns the absolute URL from root URL."""
@@ -3393,7 +3393,7 @@ class ProfessionalProgramStudent(BaseModel):
 
     def get_application_type(self):
         """Application type title for display."""
-        return 'Professional Program Student'
+        return 'Student Participant in Internship'
 
     def get_slug(self):
         """Slug for the application, used for many things."""

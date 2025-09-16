@@ -123,7 +123,7 @@ PROGRAM_CHOICES = (
     ('IndustryInternship', 'Industry Internship'),
     ('MidwestHighPoweredRocketCompetition', 'Midwest High Powered Rocket Competition'),
     ('NasaCompetition', 'National Competitions and Programs'),
-    ('ProfessionalProgramStudent', 'Professional Program Student'),
+    ('ProfessionalProgramStudent', 'Student Participant in Internship'),
     ('ResearchInfrastructure', 'Research Infrastructure'),
     ('RocketLaunchTeam', 'Rocket Launch Team'),
     ('SpecialInitiatives', 'Special Initiatives'),
