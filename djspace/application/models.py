@@ -1333,8 +1333,8 @@ class RocketLaunchTeam(BaseModel):
         """Attributes about the data model and admin options."""
 
         ordering = ['name']
-        verbose_name = 'Rocket Launch Team (NOI)'
-        verbose_name_plural = 'Rocket Launch Team (NOI)'
+        verbose_name = 'Collegiate Rocket Launch Team (Create NOI))'
+        verbose_name_plural = 'Collegiate Rocket Launch Team (Create NOI)'
 
     def __str__(self):
         """Default data for display."""
