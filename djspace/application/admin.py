@@ -1075,7 +1075,6 @@ class CollegiateRocketCompetitionAdmin(GenericAdmin):
         'critical_design_report_file',
         'post_flight_performance_report_file',
         'education_outreach_file',
-        'cv_file',
         'team',
         'past_funding',
         'past_funding_year',
@@ -1096,12 +1095,6 @@ class CollegiateRocketCompetitionAdmin(GenericAdmin):
         export_photo_files,
         'email_applicants',
     ]
-
-    def cv_file(self, instance):
-        """Construct display file code for the admin dashboard."""
-        return admin_display_file(instance, 'cv')
-    cv_file.allow_tags = True
-    cv_file.short_description = "CV"
 
     def budget_file(self, instance):
         """Construct display file code for the admin dashboard."""

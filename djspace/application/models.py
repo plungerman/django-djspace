@@ -1657,13 +1657,6 @@ class CollegiateRocketCompetition(BaseModel):
         null=True,
         blank=True,
     )
-    cv = models.FileField(
-        "Résumé",
-        upload_to=partial(upload_to_path, 'CV'),
-        validators=FILE_VALIDATORS,
-        max_length=255,
-        help_text="PDF format",
-    )
     other_fellowship = models.CharField(
         "Do you currently hold another federal fellowship or traineeship?",
         max_length=4,
