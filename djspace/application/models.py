@@ -33,7 +33,9 @@ if settings.DEBUG:
     PHOTO_VALIDATORS = []
 DIRECTORATE_CHOICES = (
     ('Aeronautics Research', 'Aeronautics Research'),
+    ('Explorations System Development', 'Explorations System Development'),
     ('Science', 'Science'),
+    ('Space Operations', 'Space Operations'),
     ('Space Technology', 'Space Technology'),
     ('Other', 'Other'),
 )
@@ -507,7 +509,10 @@ class HigherEducationInitiatives(EducationInitiatives):
     award_type = models.CharField(
         "Award",
         max_length=128,
-        choices=EDUCATION_INITIATIVES_AWARD_TYPES,
+        choices=(
+            ('Major Award: $5000 - $10000', 'Major Award: $5000 - $10000'),
+            ('Minor Award: Up to $5000', 'Minor Award: Up to $5000'),
+        ),
         help_text="""
             Select the opportunity to which the proposal is being submitted.
         """,

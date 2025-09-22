@@ -1107,6 +1107,19 @@ class WomenInAviationScholarshipForm(forms.ModelForm):
             </ol> [PDF format]
         """),
     )
+    recommendation = forms.FileField(
+        help_text=mark_safe("""
+            Recommendation letters are not required for this scholarship
+            application, but will be accepted as additional application
+            documentation. Letters may be uploaded with your application
+            or emailed directly to WSGC by an Advisor
+            <a href="mailto:spacegrant@carthage.edu">spacegrant@carthage.edu</a>.
+            [PDF format]
+        """
+        ),
+        label="Additional Letter of Recommendation (aviation mentor)",
+        required=False,
+    )
     past_funding = forms.TypedChoiceField(
         label="Have you received WSGC funding within the past five years?",
         choices=BINARY_CHOICES,
@@ -1117,22 +1130,12 @@ class WomenInAviationScholarshipForm(forms.ModelForm):
         widget=forms.Select(choices=PAST_FUNDING_YEAR_CHOICES),
         required=False,
     )
-    other_funding = forms.TypedChoiceField(
-        label="Are you seeking other WSGC funding for this project?",
-        choices=BINARY_CHOICES,
-        widget=forms.RadioSelect(),
-    )
     other_fellowship = forms.TypedChoiceField(
         label="""
             Do you currently hold another Federal fellowship or traineeship?
         """,
         choices=BINARY_CHOICES,
         widget=forms.RadioSelect(),
-    )
-    academic_institution = forms.TypedChoiceField(
-        label="Application submitted for",
-        widget=forms.RadioSelect(),
-        choices=ACADEMIC_INSTITUTIONS,
     )
     signed_certification = forms.BooleanField(
         label="""
@@ -1158,6 +1161,9 @@ class WomenInAviationScholarshipForm(forms.ModelForm):
             'user',
             'status',
             'funded_code',
+            'academic_institution',
+            'other_funding',
+            'other_funding_explain',
             'funds_authorized',
             'authorized_match',
             'award_acceptance',
