@@ -227,6 +227,7 @@ ROCKET_COMPETITIONS_EXCLUDE = [
 TRA_NAR_MEMBER = (('Yes', 'Yes'), ('No', 'No'), ('Not certain', 'Not certain'))
 OTHER_PROGRAM_PURPOSE = (
     ('', "----select----"),
+    ('Embedded Teacher Program', "Embedded Teacher Program"),
     ('LiftOff', 'LiftOff'),
     ('SEEC', 'SEEC'),
     ('Travel', 'Travel'),

@@ -936,22 +936,12 @@ class UndergraduateScholarshipForm(forms.ModelForm):
         widget=forms.Select(choices=PAST_FUNDING_YEAR_CHOICES),
         required=False,
     )
-    other_funding = forms.TypedChoiceField(
-        label="Are you seeking other WSGC funding for this project?",
-        choices=BINARY_CHOICES,
-        widget=forms.RadioSelect(),
-    )
     other_fellowship = forms.TypedChoiceField(
         label="""
             Do you currently hold another Federal fellowship or traineeship?
         """,
         choices=BINARY_CHOICES,
         widget=forms.RadioSelect(),
-    )
-    academic_institution = forms.TypedChoiceField(
-        label="Application submitted for",
-        widget=forms.RadioSelect(),
-        choices=ACADEMIC_INSTITUTIONS,
     )
     signed_certification = forms.BooleanField(
         label="""
@@ -980,6 +970,9 @@ class UndergraduateScholarshipForm(forms.ModelForm):
             'funds_authorized',
             'authorized_match',
             'award_acceptance',
+            'academic_institution',
+            'other_funding',
+            'other_funding_explain',
             'final_report',
             'other_file',
             'other_file2',
